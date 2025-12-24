@@ -1,8 +1,11 @@
 const { exec } = require('child_process');
 
-cmd = 'cp ./m1-old.js ./m1.js';
-console.log(cmd);
-exec(cmd, (error, stdout, stderr) => { });
+function shell(cmd) {
+    console.log(cmd);
+    exec(cmd, (error, stdout, stderr) => { });
+}
+
+shell('cp ./m1-old.js ./m1.js');
 
 const fs = require('fs');
 const path = require('path');
@@ -43,9 +46,7 @@ function do_reload() {
 }
 
 // setTimeout(() => {
-//     cmd = 'cp ./m1-new.js ./m1.js';
-//     console.log(cmd);
-//     exec(cmd, (error, stdout, stderr) => { });
+//     shell('cp ./m1-new.js ./m1.js');
 // }, 1000);
 // 
 // setTimeout(() => {
@@ -53,9 +54,7 @@ function do_reload() {
 // }, 2000);
 
 setTimeout(() => {
-    cmd = 'cp ./m1-new-new.js ./m1.js';
-    console.log(cmd);
-    exec(cmd, (error, stdout, stderr) => { });
+    shell('cp ./m1-new-new.js ./m1.js');
 }, 3000);
 
 setTimeout(() => {

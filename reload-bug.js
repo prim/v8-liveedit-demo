@@ -1,13 +1,9 @@
 const { exec } = require('child_process');
 
-function shell(cmd) {
-    console.log(cmd);
-    exec(cmd, (error, stdout, stderr) => { });
-}
-
-shell('cp ./m1-old.js ./m1.js');
-
 const fs = require('fs');
+
+fs.copyFileSync('./m1-old.js', './m1.js');
+
 const path = require('path');
 
 const reloader = require("./reloader");
@@ -46,7 +42,7 @@ function do_reload() {
 }
 
 setTimeout(() => {
-    shell('cp ./m1-new.js ./m1.js');
+    fs.copyFileSync('./m1-new.js', './m1.js');
 }, 1000);
 
 setTimeout(() => {
@@ -54,7 +50,7 @@ setTimeout(() => {
 }, 2000);
 
 setTimeout(() => {
-    shell('cp ./m1-new-new.js ./m1.js');
+    fs.copyFileSync('./m1-new-new.js', './m1.js');
 }, 3000);
 
 setTimeout(() => {
